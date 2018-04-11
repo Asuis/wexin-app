@@ -1,0 +1,49 @@
+{
+  "pages": [
+    "pages/show/show",
+    "pages/room/room",
+    "pages/meeting/create/m-create",
+    "pages/index2/form",
+    "pages/chat/chat",
+    "pages/meeting/details/meeting-detail",
+    "pages/meeting/show/show",
+    "pages/index/index",
+    "pages/test/test",
+    "pages/danmu/bar",
+    "pages/social/social",
+    "pages/pay/pay",
+    "pages/red-paper/red-paper"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ff6f00",
+    "navigationBarTitleText": "移动实时互动会议",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#cdcdcd",
+    "selectedColor": "#ff6f00",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "img/home.png",
+        "selectedIconPath": "img/home2.png"
+      },
+      {
+        "pagePath": "pages/index2/form",
+        "text": "朋友",
+        "iconPath": "img/social.png",
+        "selectedIconPath": "img/social2.png"
+      },
+      {
+        "pagePath": "pages/index2/form",
+        "iconPath": "img/me.png",
+        "selectedIconPath": "img/me2.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "debug": true
+}

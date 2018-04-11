@@ -1,0 +1,25 @@
+/* pages/meeting/create/inv/inv.wxss */
+@import '/zan-ui/index.wxss';
+.contianer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20rpx;
+}
+.contianer icon{
+  margin-top: 50rpx;
+  margin-bottom: 50rpx;
+}
+.contianer .we-title{
+  font-size: 16px;
+  font-weight: 600;
+  margin: 20rpx;
+}
+.contianer button{
+  margin: 0;
+}
+.we-content{
+  margin: 20rpx;
+  padding: 10rpx;
+}

@@ -1,0 +1,11 @@
+/* pages/room/componets/float-button/mfloat-button.wxss */
+.post {
+    float: right;
+    background-color: #ffffff;
+    position: fixed;
+    top: 20px;
+    right: 10px;  
+    border: 0 solid #ffffff;
+    border-radius: 500px;
+    box-shadow: 4px 1px 1px #cccccc;
+}

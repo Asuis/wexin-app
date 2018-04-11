@@ -1,0 +1,94 @@
+<view class="root">
+<view class="page">
+    <view class="page__bd">
+        <view class="weui-search-bar zan-row">
+            <view class="weui-search-bar__form">
+                <view class="weui-search-bar__box">
+                    <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+                    <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+                    <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+                        <icon type="clear" size="14"></icon>
+                    </view>
+                </view>
+                <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+                    <icon class="weui-icon-search" type="search" size="14"></icon>
+                    <view class="weui-search-bar__text">搜索</view>
+                </label>
+            </view>
+            <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+        </view>
+        <view class="weui-cells searchbar-result" wx:if="{{inputVal.length > 0}}">
+            <navigator url="" class="weui-cell" hover-class="weui-cell_active">
+                <view class="weui-cell__bd">
+                    <view>实时搜索文本</view>
+                </view>
+            </navigator>
+            <navigator url="" class="weui-cell" hover-class="weui-cell_active">
+                <view class="weui-cell__bd">
+                    <view>实时搜索文本</view>
+                </view>
+            </navigator>
+            <navigator url="" class="weui-cell" hover-class="weui-cell_active">
+                <view class="weui-cell__bd">
+                    <view>实时搜索文本</view>
+                </view>
+            </navigator>
+            <navigator url="" class="weui-cell" hover-class="weui-cell_active">
+                <view class="weui-cell__bd">
+                    <view>实时搜索文本</view>
+                </view>
+            </navigator>
+        </view>
+    </view>
+</view>
+<swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">  
+      <block wx:for="{{movies}}" wx:for-index="index">  
+        <swiper-item>  
+          <image src="{{item.url}}" class="slide-image" mode="aspectFill"/>  
+        </swiper-item>  
+      </block>  
+    </swiper>
+    <view class="line">
+        <text>综合示例</text>
+        <view bindtap="openChat" class="demo">
+            三木聊天室
+            <view class="link">Demo体验 ></view>
+        </view>
+    </view>
+    <view class="line">
+        <text>登录接口测试</text>
+        <input type="text" value="{{loginUrl}}" disabled class="hide"></input>
+        <view class="line-control">
+            <view bindtap="doLogin" class="item"><view class="item-inner">登录</view></view>
+            <view bindtap="clearSession" class="item"><view class="item-inner">清除登录会话</view></view>
+        </view>
+    </view>
+    <view class="line">
+        <text>带会话请求测试</text>
+        <input type="text" value="{{requestUrl}}" disabled class="hide"></input>
+        <view class="line-control">
+            <view bindtap="doRequest" class="item" ><view class="item-inner">请求</view></view>
+        </view>
+    </view>
+    <view class="line">
+        <text>WebSocket 信道服务测试</text>
+        <input type="text" value="{{tunnelUrl}}" disabled class="hide" />
+        <view class="line-control">
+            <view class="item flag">
+                <view class="item-inner">信道
+                    <view class="switch-status">
+                        <text>{{tunnelStatusText[tunnelStatus]}}</text>
+                        <switch bindchange="switchTunnel" class="switch" checked="{{tunnelStatus == 'connected'}}"/>
+                    </view>
+                </view>
+            </view>
+            <view bindtap="sendMessage" class="item {{tunnelStatus == 'connected' || 'disabled'}}"><view class="item-inner">发送消息</view></view>
+            <view bindtap="testReconnect" class="item {{tunnelStatus == 'connected' || 'disabled'}}"><view class="item-inner">测试重连</view></view>
+        </view>
+    </view>
+    <view class="line">
+        <text>跳转</text>
+        <view bindtap="jump">jump</view>
+    </view>
+    <image style='width:50px;height:50px;' class='post animated rotateIn' src='/img/more.png'></image>
+</view>

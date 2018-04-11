@@ -1,0 +1,6 @@
+/* pages/meeting/fill-form/fill-form.wxss */
+@import '/zan-ui/index.wxss';
+.we-button{
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+}

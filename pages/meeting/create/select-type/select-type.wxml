@@ -1,0 +1,17 @@
+<!--pages/meeting/create/select-type/select-type.wxml-->
+<view class='we-msg'>
+        <text>请在这里选择合适的会议类型</text>
+</view>
+    <view class='container'>
+          <view class='we-card'>
+          <image src='/img/Meeting2.png' mode='aspectFit'></image>
+          <text class='we-card-title' style='text-align:center;'>default</text>
+        </view>
+        <view class='we-card'>
+          <image src='/img/Meeting2.png' mode='aspectFit'></image>
+          <text class='we-card-title' style='text-align:center;'>default</text>
+        </view>
+        </view>
+        <view class='we-button'>
+          <button class='zan-btn zan-btn--primary we-button' bindtap='next'>下一步</button>                   
+        </view>

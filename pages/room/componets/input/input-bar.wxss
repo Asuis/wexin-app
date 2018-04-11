@@ -1,0 +1,82 @@
+/* pages/room/componets/input/input-bar.wxss */
+.we-container{
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  bottom: 0px;
+  width: 100%;
+   z-index: 99;
+}
+.input-panel {
+    height: 100rpx;
+    box-sizing: border-box;
+    padding: 13rpx 20rpx 0;
+    width: 100%;
+    background: #fafafa;
+    border-top:#d7d7d9 1rpx solid;
+    display: flex;
+    z-index: 99;
+}
+.pic-icon {
+    width: 60rpx;
+    height: 44rpx;
+    margin: 15rpx 20rpx 0 0;
+    background:url(http://imgcache.qq.com/open_proj/proj_qcloud_v2/wechat_mc/pic/send.svg);
+    display: none;
+}
+.send-input {
+    flex: 1;
+    height: 72rpx;
+    border-bottom: #ddd 1rpx solid;
+    margin-right: 20rpx;
+    box-sizing: border-box;
+    padding: 0 10rpx;
+}
+.we-btn{
+  height: 72rpx;
+  width: 72rpx;
+}
+.send-btn {
+    width: 160rpx;
+    height: 72rpx;
+    line-height: 72rpx;
+    background-color: #ff6f00;
+    color: #fff;
+    font-size: 28rpx;
+}
+
+.feature-list{
+  display: flex;
+  flex: 0 0 33.33%;
+  padding: 26rpx;
+  background: #fafafa;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.feature-cell{
+  box-sizing:border-box;
+  flex-wrap: wrap;
+  flex: 1 1 auto;
+  padding: 10rpx;
+  margin: 10rpx;
+  border: #ff6f00 1px solid;
+  border-radius: 8rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.feature-cell image{
+  max-width: 60rpx;
+  max-height: 60rpx;
+}
+.f-show{
+  display: none;
+}
+.mask{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top:0;left:0;
+  z-index: 1;
+}

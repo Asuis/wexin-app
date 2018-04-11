@@ -1,0 +1,9 @@
+<!--pages/meeting/details/meeting-detail.wxml-->
+<view class='container'>
+  <image src='/img/me-logo.jpg' mode='aspectFill'></image>
+  <view>标题</view>
+  <view>会议描述</view>
+  <view>嘉宾</view>
+  <view>报名人数</view>
+  <view>评论</view>
+</view>

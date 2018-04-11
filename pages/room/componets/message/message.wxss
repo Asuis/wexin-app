@@ -1,0 +1,175 @@
+/* pages/room/componets/message/message.wxss */
+ @import '/zan-ui/index.wxss';
+.we-message-left{
+  display: flex;
+  justify-content: flex-start;
+  padding: 10px;
+}
+.we-message-right{
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+}
+.we-avatar{
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.we-msg-detail{
+  padding:10px;
+  margin: 3px;
+  display: inline-block;
+  max-width: 400rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+  word-break: break-all; word-wrap:break-word;
+}
+.we-msg-detail-r{
+  word-break: break-all; word-wrap:break-word;
+  padding:10px;
+  margin: 3px;
+  display: inline-block;
+  max-width: 400rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+}
+.we-left_triangle{
+  height:0px; 
+  width:0px;   
+  border-width:8px;    
+  border-style:solid;    
+  border-color:transparent #cdcdcd transparent transparent;    
+  position: relative;  
+  left:-16px;  
+  top:3px;
+}
+.we-right_triangle{  
+  height:0px;    
+  width:0px; 
+  border-width:8px;    
+  border-style:solid;    
+  border-color:transparent transparent transparent #cdcdcd;    
+  position: relative;  
+  right:-16px;  
+  top:3px; 
+}  
+.we-msg-detail image{
+   max-width: 100%;
+   max-height: 100%;
+}
+.we-msg-detail text{
+  display: inline-block;
+}
+.we-msg-detail-r text{
+  display: inline-block;
+}
+.we-title{
+  color: #424242;
+}
+.we-title-r{
+  color: #424242;
+  text-align: right;  
+}
+.we-block{
+  margin-left: 20rpx;
+  font-size: 14px;
+}
+.we-block-r{
+  margin-right: 20rpx;
+  font-size: 14px;
+}
+.we-msg-back{
+  background: #f5f5f5;
+}
+.we-time{
+  background: #e0e0e0;
+  align-items: center;
+  margin: 10px;
+  font-size: 12px;
+  width: 100rpx;
+  padding: 10rpx;
+  border-radius: 10rpx;
+}
+.we-msg-red{
+  background: #ff6f00;
+  border-radius: 10rpx;
+  padding: 30rpx;
+  padding-right: 40rpx;
+  display: flex;
+  justify-content: flex-start;
+}
+.we-msg-red:hover{
+  filter: grayscale(10%);
+}
+.we-msg-red image{
+  max-width: 100rpx;
+  max-height: 100rpx;
+  margin: -2rpx;
+}
+.we-msg-red .red-title{
+  color: #fff;
+  font-size: 14px;
+  font-family: 'Microsoft YaHei';
+  margin-bottom: 10rpx;
+}
+.we-msg-red-de{
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+.we-msg-vote{
+  background: #fff;
+  border: #ff6f00 1px solid;
+  border-radius: 10rpx;
+  padding: 30rpx;
+  padding-right: 40rpx;
+  display: flex;
+  justify-content: flex-start;
+}
+.we-msg-vote image{
+  max-width: 100rpx;
+  max-height: 100rpx;
+  margin: -2rpx;
+}
+.we-msg-vote .vote-title{
+  color: #ff6f00;
+  font-family: 'Microsoft YaHei';
+  margin-bottom: 10rpx;
+}
+.we-msg-vote-de{
+  margin-left: 20rpx;
+  color: #ff6f00;
+  display: flex;
+  flex-direction: column;
+}
+.red-paper-de{
+  height: 600rpx;
+  width: 500rpx;
+  border-radius: 40rpx;
+  background: #f44336;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+.zan-popup__container{
+  background: #f44336;
+  border-radius: 40rpx;
+}
+.u-detail{
+  margin-top: 10rpx;
+  text-align: center;
+  color: #ffe082;
+  font-weight: 700;
+}
+.u-detail text{
+  margin-top: 20rpx;
+}
+.topcontent {
+  padding: 40rpx;
+    height: 300rpx;
+    border: 1px solid #ff5252;
+    background-color: #ff5252;
+    border-radius: 10px 10px 50% 50% / 10px 10px 15% 15%;
+    box-shadow: 0px 4px 0px -1px rgba(0,0,0,0.2);
+}

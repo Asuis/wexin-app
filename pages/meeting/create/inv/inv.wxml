@@ -1,0 +1,9 @@
+<!--pages/meeting/create/inv/inv.wxml-->
+<view class='contianer'>
+    <icon type='success' size='100'></icon>
+    <text class='we-title'>创建成功</text>
+    <text class='we-content'>恭喜您，成功创建了一次会议，您可以通过以下方式邀请朋友报名</text>
+    <button class='zan-btn zan-btn--primary'>分享会议二维码/邀请码</button>
+    <!-- <button class='zan-btn zan-btn--primary'>邀请好友参加</button> -->
+    <!-- <button class='zan-btn zan-btn--primary'>制作报名表，让朋友们报名参加</button> -->
+</view>

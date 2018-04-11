@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "创建会议",
+  "usingComponents": {
+    "select-type": "select-type/select-type",
+    "fill-form": "fill-form/fill-form",
+    "inv": "inv/inv"
+  }
+}

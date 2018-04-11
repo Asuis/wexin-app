@@ -1,0 +1,11 @@
+<!--pages/room/room.wxml-->
+<view>
+   <view>
+    <view>
+      <chat-message></chat-message>
+    </view>
+  </view>
+<m-button></m-button>
+<input-bar></input-bar> 
+<!-- <r-dialog></r-dialog> -->
+</view>

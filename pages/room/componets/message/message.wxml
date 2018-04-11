@@ -1,0 +1,94 @@
+<!--pages/room/componets/message/message.wxml-->
+<view>
+  <scroll-view class='we-msg-back' scroll-y='true'>
+    <view class='we-message-left'>
+    <image class='we-avatar' src='/img/boy_1.png'></image>
+    <view class='we-block'>
+      <view class='we-title'>hello</view>
+      <view class='we-msg-detail'>
+        <!-- <view class='we-left_triangle'></view> -->
+        <!-- <image src='/img/boy_2.png'></image> -->
+        <text>你地方</text>
+      </view>
+    </view>
+</view>
+<view class='we-message-right'>
+    <view class='we-block-r'>
+      <view class='we-title-r'>hello</view>
+      <view class='we-msg-detail-r'>
+        <!-- <image src='/img/boy_2.png'></image> -->
+        <text>那好的减肥的减肥快乐的减肥了肯德基埃里克vjkdnvkdjfkdjfkjddkfjdkjfkdjfv的房间的积分看见对方空间的打开房间打开就分开的减肥快点击对方空间打开就分开的积分肯定就撒了；减肥哦法人和vfdfjeiwjfhdsjkhv覅多少分解为奇偶发文地方将诶就安静圣诞快乐发动机覅偶尔就覅偶金额发酵批复文件而非地非法奇偶；的菜鸟房皮肤都放假违法和爱车就是你的覅是短发接诶文件发送答卷；为佛巨额我为及覅偶说的就覅而忘记覅额及覅诶的覅金额非的风范分饿哦佛尔佛IE我【爱非空的时间发哦减肥减肥微福萨的金发放费费覅额偶if啊【我地府登记【分</text>
+        <!-- <view class='we-right_triangle' style='display:inline-block'></view>         -->
+      </view>
+    </view>
+     <image class='we-avatar' src='/img/boy_2.png'></image>
+</view>
+<!--pages/room/componets/message/message.wxml-->
+<view class='we-message-left'>
+    <image class='we-avatar' src='/img/boy_1.png'></image>
+    <view class='we-block'>
+      <view class='we-title'>hello</view>
+      <view class='we-msg-detail'>
+        <!-- <view class='we-left_triangle'></view> -->
+        <!-- <image src='/img/boy_2.png'></image> -->
+        <text>那好的减肥的减肥快乐的减肥了肯德基埃里克vjkdnvkdjfkdjfkjddkfjdkjfkdjfv的房间的积分看见对方空间的打开房间打开就分开的减肥快点击对方空间打开就分开的积分肯定就撒了；减肥哦法人和vfdfjeidsjkhv覅多少分解为奇偶发文地方将诶就安静圣诞快乐发动机覅偶尔就覅偶金额发酵批复文件而非地非法奇偶；的菜鸟房皮肤都放假违法和爱车就是你的覅是短发接诶文件发送答卷；为佛巨额我为及覅偶说的就覅而忘记覅额及覅诶的覅金额非的风范分饿哦佛尔佛IE我【爱非空的时间发哦减肥减肥微</text>
+      </view>
+    </view>
+</view>
+<view class='we-message-left'>
+    <image class='we-avatar' src='/img/boy_1.png'></image>
+    <view class='we-block'>
+      <view class='we-title'>hello</view>
+      <view class='we-msg-detail'>
+        <!-- <view class='we-left_triangle'></view> -->
+         <image src='/img/boy_2.png' mode='aspectFit'></image> 
+      </view>
+    </view>
+</view>
+<view class='we-message-left'>
+    <image class='we-avatar' src='/img/boy_1.png'></image>
+    <view class='we-block'>
+      <view class='we-title'>hello</view>
+      <view class='we-msg-red' bindtap='togglePopup'>
+        <image src='/img/red.png'></image>
+        <view class='we-msg-red-de'>
+          <text class='red-title'>恭喜发财，大吉大利</text>
+          <text>dfjkdfj</text>
+        </view>  
+      </view>
+    </view>
+</view>
+<view class='we-message-left'>
+    <image class='we-avatar' src='/img/boy_1.png'></image>
+    <view class='we-block'>
+      <view class='we-title'>hello</view>
+      <view class='we-msg-vote'>
+        <image src='/img/vote.png' mode='aspectFit'></image>
+        <view class='we-msg-vote-de'>
+          <text class='vote-title'>投票</text>
+          <text>dfjkdfj</text>
+        </view>  
+      </view>
+    </view>
+</view>
+  </scroll-view>
+  <view style='height:100rpx;'>
+  
+  </view>
+</view>
+  <view class="zan-popup {{ showPopup ? 'zan-popup--show' : ''}}">
+    <view class="zan-popup__mask" bindtap="togglePopup"></view>
+    <view class="zan-popup__container">
+      <view class='red-paper-de'>
+          <view class='u-detail topcontent'>
+            <image class='we-avatar' src='/img/boy_1.png'></image>
+            <view>
+              <text>dfj</text>
+            </view>
+            <view>
+              <text>恭喜发财，大吉大利</text>
+            </view>
+          </view>
+      </view>
+    </view>
+  </view>

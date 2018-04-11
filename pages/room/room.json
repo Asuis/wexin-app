@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "chat-message": "componets/message/message",
+    "m-button": "componets/float-button/mfloat-button",
+    "input-bar": "componets/input/input-bar",
+    "r-dialog": "componets/dialog/redpaper-dialog/red-dialog"
+  }
+}

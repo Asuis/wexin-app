@@ -1,0 +1,56 @@
+<!--pages/meeting/fill-form/fill-form.wxml-->
+<import src="/zan-ui/field/index.wxml" />
+ <view class="zan-panel-title">完善会议信息</view>
+  <view class="zan-panel">
+    <template
+      is="zan-field"
+      data="{{ ...config.base.name, value }}"></template>
+    <template
+      is="zan-field"
+      data="{{ ...config.base.tel }}"></template>
+    <template
+      is="zan-field"
+      data="{{ ...config.base.address }}"></template>
+      <template
+      is="zan-field"
+      data="{{ ...config.base.desc }}"></template>
+<picker mode='time' start="00:00" end="24:00" value='{{time}}'>
+  <view class="zan-cell zan-field">
+    <view class='zan-cell__hd zan-field__title'>
+      开始时间
+    </view>
+    <view
+        class="zan-field__input zan-cell__bd"
+        bindtap="handleDateFieldClick"
+      >
+      {{time}}
+      </view>
+  </view>
+</picker>
+<picker mode='time' start="00:00" end="24:00" value='{{time}}'>
+  <view class="zan-cell zan-field">
+    <view class='zan-cell__hd zan-field__title'>
+      结束时间
+    </view>
+    <view
+        class="zan-field__input zan-cell__bd"
+        bindtap="handleDateFieldClick"
+      >
+      {{time}}
+      </view>
+  </view>
+</picker>
+     <view class="zan-cell zan-field">
+       <view class="zan-cell__hd zan-field__title">验证码</view>
+       <input
+         type="text"
+         placeholder="请输入短信验证码"
+         class="zan-field__input zan-cell__bd"/>
+        <view class="zan-cell__ft">
+        <button class="zan-btn zan-btn--mini zan-btn--primary">获取验证码</button>
+      </view>
+    </view>
+  </view>
+  <view class='we-button'>
+    <button class='zan-btn zan-btn--primary we-button' bindtap='next'>下一步</button>                   
+  </view>

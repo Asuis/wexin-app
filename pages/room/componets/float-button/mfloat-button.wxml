@@ -1,0 +1,2 @@
+<!--pages/room/componets/float-button/mfloat-button.wxml-->
+<image style='width:50px;height:50px;' class='post animated rotateIn' src='/img/more.png'></image>
