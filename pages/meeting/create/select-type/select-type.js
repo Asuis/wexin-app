@@ -1,4 +1,6 @@
 // pages/meeting/create/select-type/select-type.js
+var qcloud = require('../../../../vendor/qcloud-weapp-client-sdk/index');
+var config = require('../../../../config');
 Component({
   /**
    * 组件的属性列表
@@ -25,10 +27,26 @@ Component({
       if (this.current_type!=='') {
 
       }
-      this.triggerEvent('next',{},{})
+      this.submit();
     },
     submit() {
-      
+      const $this = this;
+      qcloud.request({
+        login: true,
+        url: 'http://localhost:8080/v1/m/create',
+        method: 'post',
+        data: { "type": "1" },
+        success: function (response) {
+          console.log(response);
+          if(response.code==='200') {
+
+          }
+          $this.triggerEvent('next', { "meetingId": response.data.data.meId}, {})
+        },
+        fail: function (err) {
+          console.log(err);
+        }
+      }); 
     }
   }
 })

@@ -13,5 +13,5 @@
         </view>
         </view>
         <view class='we-button'>
-          <button class='zan-btn zan-btn--primary we-button' bindtap='next'>下一步</button>                   
+          <button class='zan-btn zan-btn--primary we-button' bindtap='next'>下一步</button>
         </view>

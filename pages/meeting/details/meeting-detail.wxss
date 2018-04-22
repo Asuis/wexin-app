@@ -3,4 +3,12 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
+  margin-bottom: 50px;
+}
+.sign_up_button{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #ff6f00;
+  color: #fff;
 }

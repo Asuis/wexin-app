@@ -1,5 +1,13 @@
 module.exports = {
   // 基础类型输入框配置
+  mdata: {
+    "desc": "string",
+    "endTime": "2018-04-17T07:18:16.811Z",
+    "meetingId": 0,
+    "place": "string",
+    "starTime": "2018-04-17T07:18:16.812Z",
+    "title": "string",
+  },
   base: {
     confirmation: {
       title: '验证码',

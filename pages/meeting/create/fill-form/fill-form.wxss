@@ -4,3 +4,22 @@
   margin-left: 20rpx;
   margin-right: 20rpx;
 }
+.logo-img{
+  display: flex;
+  justify-content: flex-end;
+}
+.logo-img image{
+  width: 100%;
+}
+.logo-img button{
+  font-size: 12px;
+  position: absolute;
+  right: 20rpx;
+  top: 20rpx;
+  color: #fff;
+  background-color: #000;
+  opacity: 0.5;
+}
+.logo-img button:active{
+  opacity: 0.8
+}

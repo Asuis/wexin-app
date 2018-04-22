@@ -1,18 +1,54 @@
 // pages/meeting/details/meeting-detail.js
+const qcloud = require('../../../vendor/qcloud-weapp-client-sdk/index.js')
+const config = require('../../../config.js')
+const moment = require('../../../vendor/moment/moment-with-locales.min.js')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    url: 'default',
+    meeting: {
+      desc: '',
+      endTime: '',
+      startTime: '',
+      meId: '',
+      place: '',
+      title: '',
+      typeId: '',
+      logo: ''
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.setData({
+      url: decodeURI(options.q)
+    })
+    let $this = this;
+    qcloud.request({
+      url: config.meeting.searchByIdUrl,
+      method: 'post',
+      data: { query: '1' },
+      success: function (res) {
+        console.log(res)
+        if (res.data.code === 'SUCC') {
+          res.data.data.startTime
+          $this.setData({
+            meeting: res.data.data
+          })
+          wx.setNavigationBarTitle({
+            title: $this.data.meeting.title
+          })
+        }
+      },
+      fail: function (e) {
+
+      }
+    })
   },
 
   /**

@@ -7,6 +7,6 @@
       </view>
     </view>
     <select-type wx:if="{{steps[0].current==true}}" bind:next='next'></select-type>
-    <fill-form wx:if="{{steps[1].current==true}}" bind:nextt='next2'></fill-form>
-    <inv wx:if="{{steps[2].current==true}}"></inv>
+    <fill-form meetingId="{{meetingId}}" wx:if="{{steps[1].current==true}}"  bind:nextt='next2'></fill-form>
+    <inv meetingId="{{meetingId}}" wx:if="{{steps[2].current==true}}"></inv>
   </view>

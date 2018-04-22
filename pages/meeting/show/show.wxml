@@ -2,7 +2,8 @@
 <text>pages/meeting/show/show.wxml</text>
 <view class='container'>
   <view>
-    <text>hello</text>
+      <view class="zan-panel-title">标题</view>
+      <view class="zan-panel">
     <scroll-view scroll-x style='white-space: nowrap; display: flex;'>
       <view class='we-item'>
         <view class='we-card'>
@@ -29,6 +30,6 @@
         </view>
       </view>
     </scroll-view>
-    
+    </view>
   </view>
 </view>

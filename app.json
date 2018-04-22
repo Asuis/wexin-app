@@ -1,23 +1,25 @@
 {
   "pages": [
-    "pages/show/show",
+    "pages/meeting/show/show",
     "pages/room/room",
+    "pages/meeting/details/meeting-detail",
     "pages/meeting/create/m-create",
+    "pages/index/index",
+    "pages/show/show",
     "pages/index2/form",
     "pages/chat/chat",
-    "pages/meeting/details/meeting-detail",
-    "pages/meeting/show/show",
-    "pages/index/index",
     "pages/test/test",
     "pages/danmu/bar",
     "pages/social/social",
     "pages/pay/pay",
-    "pages/red-paper/red-paper"
+    "pages/red-paper/red-paper",
+    "pages/meeting/config/m-config"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#ff6f00",
     "navigationBarTitleText": "移动实时互动会议",
+    "navigationStyle": "default",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {

@@ -1,9 +1,49 @@
 <!--pages/meeting/details/meeting-detail.wxml-->
 <view class='container'>
-  <image src='/img/me-logo.jpg' mode='aspectFill'></image>
-  <view>标题</view>
-  <view>会议描述</view>
-  <view>嘉宾</view>
-  <view>报名人数</view>
-  <view>评论</view>
+  <image src="{{meeting.logo}}" mode='aspectFill'></image>
+
+  <view class="zan-panel">
+    <view class="zan-cell">
+      <view class="zan-cell__bd">
+        <view class="zan-cell__text">描述</view>
+        <view class="zan-cell__desc">{{meeting.desc}}</view>
+      </view>
+      <!-- <view class="zan-cell__ft">详细信息</view> -->
+    </view>
+    <view class="zan-cell zan-cell--access">
+      <view class="zan-cell__bd">时间</view>
+      <view class="zan-cell__desc">{{meeting.startTime}}</view>
+    </view>
+    <view class="zan-cell zan-cell--access">
+      <view class="zan-cell__bd">地点</view>
+      <view class="zan-cell__desc">{{meeting.place}}</view>
+      <view class="zan-cell__ft" bindtap=''></view>      
+    </view>
+    <view class="zan-cell zan-cell--access">
+      <view class="zan-cell__bd">参加成员</view>
+      <view class="zan-cell__desc">
+        <image src='/img/boy_2.png' style='height:32px;width:32px;'></image>
+        <image src='/img/boy_2.png' style='height:32px;width:32px;'></image>
+        <image src='/img/boy_2.png' style='height:32px;width:32px;'></image>
+      </view>
+        <view class="zan-cell__ft" bindtap=''></view>      
+    </view>
+    <view class="zan-cell zan-cell--access">
+      <view class="zan-cell__bd">设置</view>
+      <view class="zan-cell__ft" bindtap=''></view>
+    </view>
+  </view>
+
+  <view class="zan-panel">
+    <view class="zan-cell">
+      <view class='zan-cell_bd'>
+         <view class="zan-cell__text">评论</view>
+          <view class='zan-cell_desc'>
+      </view>
+    </view>
+    </view>
+  </view>
 </view>
+<!-- <button class="zan-btn zan-btn--large zan-btn--primary">报名</button> -->
+<button class="zan-btn zan-btn--large zan-btn--primary">进入房间</button>
+<!-- <button class="zan-btn zan-btn--large sign_up_button">报名</button> -->
