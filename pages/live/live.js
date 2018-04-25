@@ -1,20 +1,11 @@
-// pages/room/room.js
-const qcloud = require('../../vendor/qcloud-weapp-client-sdk/index.js')
-const config = require('../../config.js')
+// pages/live/live.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    tunnelUrl: config.service.tunnelUrl,
-    tunnelStatus: 'closed',
-    tunnelStatusText: {
-      closed: '已关闭',
-      connecting: '正在连接...',
-      connected: '已连接'
-    },
-    messages:[]
+  
   },
 
   /**
@@ -71,5 +62,8 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  statechange(e) {
+    console.log('live-pusher code:', e.detail.code)
   }
 })

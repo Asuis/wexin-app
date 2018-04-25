@@ -13,6 +13,7 @@ Component({
    * 组件的初始数据
    */
   data: {
+    is_loading: false,
     current_type: '',
     meeting_types: [
       {icon: '',title: ''}
@@ -30,10 +31,13 @@ Component({
       this.submit();
     },
     submit() {
-      const $this = this;
+      const $this = this; 
+      this.setData({
+        is_loading: true
+      })
       qcloud.request({
         login: true,
-        url: 'http://localhost:8080/v1/m/create',
+        url: config.meeting.createMeetingByTypeUrl,
         method: 'post',
         data: { "type": "1" },
         success: function (response) {
@@ -41,9 +45,13 @@ Component({
           if(response.code==='200') {
 
           }
+          $this.setData({
+            is_loading: false
+          })
           $this.triggerEvent('next', { "meetingId": response.data.data.meId}, {})
         },
         fail: function (err) {
+          this.data.is_loading = false;
           console.log(err);
         }
       }); 

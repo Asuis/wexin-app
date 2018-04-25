@@ -4,12 +4,9 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    // msg_data:{
-    //   last_msg_id:'',
-    //   msg:[
-
-    //   ]
-    // }
+    messages:{
+      type: Array
+    }
   },
 
   /**

@@ -2,7 +2,7 @@
 <view>
    <view>
     <view>
-      <chat-message></chat-message>
+      <chat-message messages="{{messages}}"></chat-message>
     </view>
   </view>
 <m-button></m-button>

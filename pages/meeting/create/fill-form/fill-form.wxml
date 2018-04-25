@@ -52,7 +52,7 @@
       </view>
     </view>
       <view class='we-button'>
-    <button formType='submit' class='zan-btn zan-btn--primary we-button'>下一步</button>             
+    <button formType='submit' class="{{is_loading?'zan-btn zan-btn--loading zan-btn--primary we-button':'zan-btn zan-btn--primary we-button'}}">下一步</button>             
   </view>
   </form>
   </view>

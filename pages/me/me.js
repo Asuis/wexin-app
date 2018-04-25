@@ -1,25 +1,29 @@
-// pages/room/room.js
-const qcloud = require('../../vendor/qcloud-weapp-client-sdk/index.js')
-const config = require('../../config.js')
+// pages/me/me.js
+var qlcoud=require('../../vendor/qcloud-weapp-client-sdk/index.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    tunnelUrl: config.service.tunnelUrl,
-    tunnelStatus: 'closed',
-    tunnelStatusText: {
-      closed: '已关闭',
-      connecting: '正在连接...',
-      connected: '已连接'
-    },
-    messages:[]
+      user:{
+        nickName:'',
+       gender :'',
+       language:'',
+       city:'',
+       province:'',
+       avatarUrl:''
+      }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
+  bindViewTap: function () {
+    wx.navigateTo({
+      url: ''
+    })
+  },
   onLoad: function (options) {
   
   },
@@ -71,5 +75,20 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  login: function () {
+    const $this = this;
+    qlcoud.login({
+      success(res) {
+        console.log("成功",res)
+        $this.setData({
+          user: res
+        })
+      },
+      fail(error) {
+        console.log("失败", error)
+      }
+    })
   }
-})
+}
+)

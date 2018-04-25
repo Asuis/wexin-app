@@ -1,0 +1,2 @@
+<!--pages/live/live.wxml-->
+  <live-pusher url="https://domain/push_stream" mode="RTC" autopush bindstatechange="statechange" style="width: 100%; height: 225px;" />

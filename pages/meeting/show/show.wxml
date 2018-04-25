@@ -1,35 +1,66 @@
 <!--pages/meeting/show/show.wxml-->
-<text>pages/meeting/show/show.wxml</text>
 <view class='container'>
-  <view>
-      <view class="zan-panel-title">标题</view>
-      <view class="zan-panel">
+<swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">  
+      <block wx:for="{{movies}}" wx:key="{{index}}">  
+        <swiper-item>  
+          <image src="{{item.url}}" class="slide-image" mode="aspectFill"/>  
+        </swiper-item>  
+      </block>  
+    </swiper>
+
+ <view class="zan-panel my-panel">
+      <view class="zan-cell zan-cell--access">
+      <view class="zan-cell__bd"><image class='my-icon' src='/img/hot.png'></image>
+      正在进行会议
+      </view>
+      <view class="zan-cell__ft"></view>
+    </view>
     <scroll-view scroll-x style='white-space: nowrap; display: flex;'>
-      <view class='we-item'>
+      <view class='we-item' wx:for="{{recoMeetingList}}" wx:key="{{index}}">
         <view class='we-card'>
-         <image src='/img/me-logo.jpg' mode='aspectFill'></image>
-         <text class='we-card-title'>你等会放大后付款的减肥辅导辅导辅导辅导费</text>
-        </view>
-      </view>
-      <view class='we-item'>
-        <view class='we-card'>
-         <image src='/img/me-logo.jpg' mode='aspectFill'></image>
-         <text class='we-card-title'>你等会放大后付款的减肥辅导辅导辅导辅导费</text>
-        </view>
-      </view>
-      <view class='we-item'>
-        <view class='we-card'>
-         <image src='/img/me-logo.jpg' mode='aspectFill'></image>
-         <text class='we-card-title'>你等会放大后付款的减肥辅导辅导辅导辅导费</text>
-        </view>
-      </view>
-      <view class='we-item'>
-        <view class='we-card'>
-         <image src='/img/me-logo.jpg' mode='aspectFill'></image>
-         <text class='we-card-title'>你等会放大后付款的减肥辅导辅导辅导辅导费</text>
+         <image src="{{item.logo}}" mode='aspectFill'></image>
+         <text class='we-card-title'>{{item.title}}</text>
         </view>
       </view>
     </scroll-view>
     </view>
-  </view>
+
+
+ <view class="zan-panel my-panel">
+      <view class="zan-cell zan-cell--access">
+      <view class="zan-cell__bd"><image class='my-icon' src='/img/hot.png'></image>
+      热门会议
+      </view>
+      <view class="zan-cell__ft"></view>
+    </view>
+    <scroll-view scroll-x style='white-space: nowrap; display: flex;'>
+      <view class='we-item' wx:for="{{recoMeetingList}}" wx:key="{{index}}">
+        <view class='we-card'>
+         <image src="{{item.logo}}" mode='aspectFill'></image>
+         <text class='we-card-title'>{{item.title}}</text>
+        </view>
+      </view>
+    </scroll-view>
+    </view>
+   <view class='we-card-large'>
+         <image src="{{recoMeetingList[0].logo}}" mode='aspectFill'></image>
+         <text class='we-card-title'>{{recoMeetingList[0].title}}</text>
+        </view>
+     <view class="zan-panel my-panel">
+      <view class="zan-cell zan-cell--access">
+      <view class="zan-cell__bd"><image class='my-icon' src='/img/hot.png'></image>
+      好友参加的会议
+      </view>
+      <view class="zan-cell__ft"></view>
+    </view>
+    <scroll-view scroll-x style='white-space: nowrap; display: flex;'>
+      <view class='we-item' wx:for="{{recoMeetingList}}" wx:key="{{index}}">
+        <view class='we-card'>
+         <image src="{{item.logo}}" mode='aspectFill'></image>
+         <text class='we-card-title'>{{item.title}}</text>
+        </view>
+      </view>
+    </scroll-view>
+    </view>
+    <image  class='post animated rotateIn' src='/img/more.png' bindtap='jumpToCreate'></image>
 </view>

@@ -5,7 +5,94 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    movies: [
+      { url: 'http://res.mengxiangjing.com/14375045_p0.jpg' },
+      { url: 'http://res.mengxiangjing.com/46814076_p0.jpg' },
+      { url: 'http://res.mengxiangjing.com/47621790_p0.jpg' },
+      { url: 'http://res.mengxiangjing.com/53969178_p1_master1200.jpg' }
+    ],
+    myMeetingList:[
+      {
+        logo: 'http://res.mengxiangjing.com/53969178_p0_master1200.jpg',
+        title: '',
+        num: '',
+        startTime: '',
+        endTime: ''
+      },
+      {
+        logo: 'http://res.mengxiangjing.com/53969178_p6_master1200.jpg',
+        title: '',
+        num: '',
+        startTime: '',
+        endTime: ''
+      },
+      {
+        logo: 'http://res.mengxiangjing.com/53969178_p8_master1200.jpg',
+        title: '',
+        num: '',
+        startTime: '',
+        endTime: ''
+      },
+      {
+        logo: 'http://res.mengxiangjing.com/53969178_p7_master1200.jpg',
+        title: '',
+        num: '',
+        startTime: '',
+        endTime: ''
+      }
+      ],
+    recoMeetingList:[
+      {
+        logo: 'http://res.mengxiangjing.com/53969178_p0_master1200.jpg',
+        title: 'hello',
+        num: '',
+        startTime: '',
+        endTime: ''
+      },
+      {
+        logo: 'http://res.mengxiangjing.com/53969178_p10_master1200.jpg',
+        title: 'hello',
+        num: '',
+        startTime: '',
+        endTime: ''
+      },
+      {
+        logo: 'http://res.mengxiangjing.com/53969178_p0_master1200.jpg',
+        title: 'hello',
+        num: '',
+        startTime: '',
+        endTime: ''
+      },
+      {
+        logo: 'http://res.mengxiangjing.com/53969178_p0_master1200.jpg',
+        title: 'hello',
+        num: '',
+        startTime: '',
+        endTime: ''
+      },
+      {
+        logo: 'http://res.mengxiangjing.com/53969178_p0_master1200.jpg',
+        title: 'hello',
+        num: '',
+        startTime: '',
+        endTime: ''
+      },
+      {
+        logo: 'http://res.mengxiangjing.com/53969178_p0_master1200.jpg',
+        title: 'hello',
+        num: '',
+        startTime: '',
+        endTime: ''
+      },
+      {
+        logo: 'http://res.mengxiangjing.com/53969178_p0_master1200.jpg',
+        title: 'hello',
+        num: '',
+        startTime: '',
+        endTime: ''
+      }
+      
+    ]
   },
 
   /**
@@ -62,5 +149,10 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  jumpToCreate() {
+    wx.navigateTo({
+      url: '../create/m-create',
+    })
   }
 })

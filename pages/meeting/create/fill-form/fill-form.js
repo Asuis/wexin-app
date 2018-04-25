@@ -19,6 +19,7 @@ Component(Object.assign({}, Zan.Field,{
    * 组件的初始数据
    */
   data: {
+    is_loading: false,
     config,
     time: '13:00',
     config,
@@ -73,17 +74,26 @@ Component(Object.assign({}, Zan.Field,{
       event.detail.value.meetingId = this.data.meetingId;      
       console.log('[zan:field:submit]', event.detail.value);
       const $this = this;
+      $this.setData({
+        is_loading: true
+      })
       qcloud.request({
         login: true,
-        url: 'http://localhost:8080/v1/m/update',
+        url: qconfig.meeting.updateMeetingUrl,
         method: 'post',
         data: event.detail.value,
         success: function (response) {
           console.log(response);
+          $this.setData({
+            is_loading: false
+          })
           $this.triggerEvent('nextt', {}, {});
         },
         fail: function (err) {
           console.log(err);
+          $this.setData({
+            is_loading: false
+          })
         }
       });
     },

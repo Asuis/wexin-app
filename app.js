@@ -35,7 +35,6 @@ App({
           success(result) {
             console.log('登录成功', result);
           },
-
           fail(error) {
             console.log('登录失败', error);
           }

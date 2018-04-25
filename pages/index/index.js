@@ -189,6 +189,7 @@ Page({
         });
         tunnel.on('ROOM', speak => {
           showModel('信道消息', speak);
+          console.log(speak)
           console.log('收到说话消息：', speak);
         });
         // 打开信道
@@ -242,7 +243,7 @@ Page({
         wx.navigateTo({ url: '../chat/chat' });
     },
     jump() {
-        wx.navigateTo({ url: '../test/test'});
+        wx.navigateTo({ url: '../live/live'});
     },
     onPullDownRefresh(){
       
