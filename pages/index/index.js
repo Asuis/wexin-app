@@ -6,7 +6,7 @@
 var qcloud = require('../../vendor/qcloud-weapp-client-sdk/index');
 // 引入配置
 var config = require('../../config');
-
+import grace from '../../grace/index'
 // 显示繁忙提示
 var showBusy = text => wx.showToast({
     title: text,
@@ -34,7 +34,7 @@ var showModel = (title, content) => {
 /**
  * 使用 Page 初始化页面，具体可参考微信公众平台上的文档
  */
-Page({
+grace.page({
 
     /**
      * 初始数据，我们把服务地址显示在页面上
@@ -97,7 +97,7 @@ Page({
                 showModel('登录失败', error);
                 console.log('登录失败', error);
             }
-        });
+        })
     },
 
     /**

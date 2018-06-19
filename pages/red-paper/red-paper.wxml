@@ -1,2 +1,25 @@
 <!--pages/red-paper/red-paper.wxml-->
-<text>pages/red-paper/red-paper.wxml</text>
+<view class="container">
+  <view class="theme-container">
+    <view class="back"></view>
+    <view class="show">
+        <view>
+            <image src="/img/boy_1.png" style="width:40px;height:40px;"></image>
+        </view>
+        <view class="text">
+            <text style="color: #FFAE45;font-weight:600;font-size:16px;">共20.00元</text>
+            <view style="font-size:14px;">来自Asuis</view>
+            <view style="font-size:14px;">恭喜发财</view>
+        </view>
+    </view>
+  </view>
+  <view class="zan-panel">
+    <view class="zan-cell" wx:for="{{10}}" wx:key="{{index}}">
+      <view class="zan-cell__icon">
+          <image src="/img/boy_1.png" style="width:16px;height:18px;"></image>
+      </view>
+      <view class="zan-cell__bd">xxx</view>
+      <view class="zan-cell__ft">0.32元</view>
+    </view>
+  </view>
+</view>

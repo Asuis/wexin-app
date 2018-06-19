@@ -2,16 +2,18 @@
 <view class='we-msg'>
         <text>请在这里选择合适的会议类型</text>
 </view>
-    <view class='container'>
-          <view class='we-card'>
-          <image src='/img/Meeting2.png' mode='aspectFit'></image>
-          <text class='we-card-title' style='text-align:center;'>default</text>
-        </view>
-        <view class='we-card'>
-          <image src='/img/Meeting2.png' mode='aspectFit'></image>
-          <text class='we-card-title' style='text-align:center;'>default</text>
-        </view>
-        </view>
-        <view class='we-button'>
-          <button class="{{is_loading?'zan-btn zan-btn--loading zan-btn--primary we-button':'zan-btn zan-btn--primary we-button'}}"  bindtap='next'>下一步</button>
-        </view>
+<view class='container'>
+  <view data-tid="1" bindtap="selected" class='we-card zan-badge' style="background:#ffca28;color:#fff;">
+    <image src='/img/meeting.png' mode='aspectFit'></image>
+    <text class='we-card-title'>默认</text>
+    <view wx:if="{{type==='1'}}" class="zan-badge__count">on</view>
+  </view>
+  <view data-tid="0" bindtap="selected" class='we-card zan-badge' style="background:#26a69a;color:#fff;">
+    <image src='/img/flash.png' mode='aspectFit'></image>
+    <text class='we-card-title'>极速</text>
+    <view wx:if="{{type==='0'}}" class="zan-badge__count">on</view>    
+  </view>
+</view>
+<view class='we-button'>
+  <button class="{{is_loading?'zan-btn zan-btn--loading zan-btn--primary we-button':'zan-btn zan-btn--primary we-button'}}"  bindtap='next'>下一步</button>
+</view>

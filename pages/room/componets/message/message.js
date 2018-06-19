@@ -1,12 +1,27 @@
 // pages/room/componets/message/message.js
-Component({
+import grace from '../../../../grace/index'
+grace.component({
   /**
    * 组件的属性列表
    */
   properties: {
     messages:{
       type: Array
-    }
+    },
+    toMessage: {
+      type: String,
+      value: '0',
+      observer: function (e) {
+        console.log(e)
+      }
+    },
+    roomHeight:{
+      type:Number,
+      default: 504,
+      observer: function (e) {
+        console.log(e)
+      }
+    },
   },
 
   /**
@@ -20,7 +35,8 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    togglePopup() {
+    togglePopup(e) {
+      console.log(e)
       this.setData({
         showPopup: !this.data.showPopup
       });

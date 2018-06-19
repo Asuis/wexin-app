@@ -9,5 +9,8 @@
   },
   "keywords": [],
   "author": "CFETeam",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "es6-promise": "^4.2.4"
+  }
 }

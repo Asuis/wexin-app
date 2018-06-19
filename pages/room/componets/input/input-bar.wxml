@@ -2,25 +2,18 @@
 <view class='we-container'>
     <view class="input-panel">
           <button class="pic-icon"></button>
-          <input type="text" value="{{inputContent}}" bindchange="changeInputContent" class="send-input"></input>
+          <input type="text" value="{{input}}" bindinput="changeInputContent" class="send-input"></input>
           <image class='we-btn' src='/img/emoji-no.png'></image>
-          <image class='we-btn' src='/img/add_item_no.png' bindtap='showFeature'></image>
-          <!-- <button bindtap="sendMessage" class="send-btn">发送</button> -->
+          <image wx:if="{{input===''}}" class='we-btn' src='/img/add_item_no.png' bindtap='showFeature'></image>
+          <button wx:elif="{{input!==''}}" bindtap="send" class="send-btn">发送</button>
     <view>
   </view>
 </view>
 <view class="feature-list {{ showFeature ? 'f-show' : ''}}">
-  <view class='feature-cell'>
-    <image src='/img/danmu.png'></image>
-  </view>
-  <view class='feature-cell'>
-    <image src='/img/wechat-f.png'></image>
-  </view>
-  <view class='feature-cell'>
-    <image src='/img/ranking.png'></image>
-  </view>
-  <view class='feature-cell'>
-    <image src='/img/red-p.png'></image>
+  <view data-id="{{index}}" wx:for="{{featureList}}" wx:key="{{index}}" bindtouchstart="press" bindtap="to" class="{{item.isPress?'feature-cell feature-cell-hovered':'feature-cell'}}">
+    <view wx:if="{{item.type==='bar'&&isDanmu===true}}" class='zan-badge__count'>on</view>
+    <view wx:elif="{{item.type==='bar'&&isDanmu===false}}" style="background-color:#f3f3f3;" class='zan-badge__count'>off</view>
+    <image src="{{item.pic}}"></image>
   </view>
 </view>
 </view>

@@ -1,5 +1,6 @@
 var page = undefined;
-Page({
+import grace from '../../grace/index'
+grace.page({
   onLoad: function () {
     page = this;
   },

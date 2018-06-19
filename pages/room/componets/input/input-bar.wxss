@@ -1,4 +1,5 @@
 /* pages/room/componets/input/input-bar.wxss */
+@import '/zan-ui/index.wxss';
 .we-container{
   position: fixed;
   display: flex;
@@ -56,15 +57,21 @@
 }
 .feature-cell{
   box-sizing:border-box;
+  position: relative;
   flex-wrap: wrap;
-  flex: 1 1 auto;
   padding: 10rpx;
   margin: 10rpx;
-  border: #ff6f00 1px solid;
-  border-radius: 8rpx;
+  width: 110rpx;
+  height: 120rpx;
+  background-color: #fff;
+  border: #e3e3e3 1px solid;
+  border-radius: 10rpx;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.feature-cell-hovered{
+  background-color: #d7d7d9;
 }
 .feature-cell image{
   max-width: 60rpx;
@@ -80,3 +87,23 @@
   top:0;left:0;
   z-index: 1;
 }
+
+
+/*弹幕*/
+.aon{
+  position: absolute;
+  white-space:nowrap;/* 防止向下换行*/
+  animation-timing-function: linear;
+  animation-fill-mode: none;
+  }
+  .doommview{
+    z-index: 3;
+    height: 80%;
+    width: 100%;
+    position: absolute;
+  }
+  
+  @keyframes first{
+    from{left: 100%; }
+    to{left: -100%;}
+  }

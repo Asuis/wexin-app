@@ -55,4 +55,4 @@
     <button formType='submit' class="{{is_loading?'zan-btn zan-btn--loading zan-btn--primary we-button':'zan-btn zan-btn--primary we-button'}}">下一步</button>             
   </view>
   </form>
-  </view>
+</view>

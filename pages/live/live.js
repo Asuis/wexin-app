@@ -65,5 +65,8 @@ Page({
   },
   statechange(e) {
     console.log('live-pusher code:', e.detail.code)
+  },
+  error(e){
+    console.log("error",e)
   }
 })

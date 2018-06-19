@@ -1,3 +1,4 @@
+<import src="/zan-ui/actionsheet/index.wxml" />
 <view class="root">
 <view class="page">
     <view class="page__bd">
@@ -91,4 +92,5 @@
         <view bindtap="jump">jump</view>
     </view>
     <image style='width:50px;height:50px;' class='post animated rotateIn' src='/img/more.png'></image>
+    <template is="zan-actionsheet" data="{{ ...baseActionsheet }}"></template>
 </view>

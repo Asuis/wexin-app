@@ -1,5 +1,7 @@
 // pages/red-paper/red-paper.js
-Page({
+import grace from '../../grace/index'
+const app = getApp()
+grace.page({
 
   /**
    * 页面的初始数据

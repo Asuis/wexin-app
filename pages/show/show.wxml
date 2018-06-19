@@ -10,5 +10,3 @@
       <button bindtap="bindbt">弹一个小苹果</button>
   </view>
 </view>
-<text>dfjkdfj</text>
-  

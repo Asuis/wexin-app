@@ -1,4 +1,5 @@
-<!--pages/meeting/show/show.wxml-->
+  <!--pages/meeting/show/show.wxml-->
+<import src="/zan-ui/actionsheet/index.wxml" />
 <view class='container'>
 <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">  
       <block wx:for="{{movies}}" wx:key="{{index}}">  
@@ -7,7 +8,22 @@
         </swiper-item>  
       </block>  
     </swiper>
-
+<view class="zan-panel my-panel">
+      <view class="zan-cell zan-cell--access">
+      <view class="zan-cell__bd"><image class='my-icon' src='/img/hot.png'></image>
+      我的会议
+      </view>
+      <view class="zan-cell__ft"></view>
+    </view>
+    <scroll-view scroll-x style='white-space: nowrap; display: flex;'>
+      <view bindtap='toDetails' data-mid="{{item.mid}}" class='we-item' wx:for="{{myMeetingList}}" wx:key="{{index}}">
+        <view class='we-card'>
+         <image src="{{item.logo}}" mode='aspectFill'></image>
+         <text class='we-card-title'>{{item.title}}</text>
+        </view>
+      </view>
+    </scroll-view>
+    </view>
  <view class="zan-panel my-panel">
       <view class="zan-cell zan-cell--access">
       <view class="zan-cell__bd"><image class='my-icon' src='/img/hot.png'></image>
@@ -16,7 +32,7 @@
       <view class="zan-cell__ft"></view>
     </view>
     <scroll-view scroll-x style='white-space: nowrap; display: flex;'>
-      <view class='we-item' wx:for="{{recoMeetingList}}" wx:key="{{index}}">
+      <view bindtap='toDetails' data-mid="{{item.mid}}" class='we-item' wx:for="{{recoMeetingList}}" wx:key="{{index}}">
         <view class='we-card'>
          <image src="{{item.logo}}" mode='aspectFill'></image>
          <text class='we-card-title'>{{item.title}}</text>
@@ -34,10 +50,17 @@
       <view class="zan-cell__ft"></view>
     </view>
     <scroll-view scroll-x style='white-space: nowrap; display: flex;'>
-      <view class='we-item' wx:for="{{recoMeetingList}}" wx:key="{{index}}">
+      <view bindtap="toDetails" class='we-item' wx:for="{{recoMeetingList}}" wx:key="{{index}}">
         <view class='we-card'>
          <image src="{{item.logo}}" mode='aspectFill'></image>
          <text class='we-card-title'>{{item.title}}</text>
+         <view class="we-card-details">
+           <span class="we-card-detail">12:00-12:00</span>
+          <span class="we-card-detail" style="display:flex;justify-content:start;">
+            <image src="/img/love.png" style="width:12px;height:12px;margin-right:10rpx;"></image>
+            1111
+          </span>
+         </view>
         </view>
       </view>
     </scroll-view>
@@ -62,5 +85,6 @@
       </view>
     </scroll-view>
     </view>
-    <image  class='post animated rotateIn' src='/img/more.png' bindtap='jumpToCreate'></image>
+    <image bindtap="toggleActionsheet" class='post animated rotateIn' src='/img/more.png'></image>
+    <template is="zan-actionsheet" data="{{ ...baseActionsheet }}"></template>
 </view>

@@ -1,1 +1,6 @@
-{}
+{
+    "usingComponents": {
+      "rank": "./rank/index"
+    },
+    "navigationBarBackgroundColor": "#E8414D"
+}

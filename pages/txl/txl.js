@@ -1,29 +1,41 @@
 // pages/txl/txl.js
-Page({
+import grace from '../../grace/index'
+const { Tab, extend } = require('../../zan-ui/index');
+grace.page(extend({}, Tab,{
 
   /**
    * 页面的初始数据
    */
   data: {
-    array: [{
-      url: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1524592132446&di=cbb5776c9de737ad5f594bdef36896e3&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimage%2Fc0%253Dshijue1%252C0%252C0%252C294%252C40%2Fsign%3D6e8effc3ab44ad343ab28fc4b8cb6681%2F5882b2b7d0a20cf4ce00a3f17c094b36acaf9908.jpg',nickname:'zhangsan',
-    }, {
-        url: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1524592132446&di=cbb5776c9de737ad5f594bdef36896e3&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimage%2Fc0%253Dshijue1%252C0%252C0%252C294%252C40%2Fsign%3D6e8effc3ab44ad343ab28fc4b8cb6681%2F5882b2b7d0a20cf4ce00a3f17c094b36acaf9908.jpg',nickname:'lisi'
+    tab: {
+      list: [{
+        id: 'session',
+        title: '会话'
       }, {
-        url: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1524592132446&di=cbb5776c9de737ad5f594bdef36896e3&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimage%2Fc0%253Dshijue1%252C0%252C0%252C294%252C40%2Fsign%3D6e8effc3ab44ad343ab28fc4b8cb6681%2F5882b2b7d0a20cf4ce00a3f17c094b36acaf9908.jpg', nickname: 'wangwu'
-      },
+        id: 'friends',
+        title: '通讯录'
+      }],
+      selectedId: 'session'
+    },
+    sessions:[
       {
-        url: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1524592132446&di=cbb5776c9de737ad5f594bdef36896e3&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimage%2Fc0%253Dshijue1%252C0%252C0%252C294%252C40%2Fsign%3D6e8effc3ab44ad343ab28fc4b8cb6681%2F5882b2b7d0a20cf4ce00a3f17c094b36acaf9908.jpg', nickname: 'zhao'
-      },
+        sessionId: '',
+        type: '',
+        icon: 'http://res.mengxiangjing.com/articleChamonixClouds_EN-AU7806783297_1920x1080.jpg',
+        title: 'Asuis',
+        msg: 'xxxx',
+        time: 'xxxx',
+        isTouch: false
+      }
+    ],
+    friends:[
       {
-        url: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1524592132446&di=cbb5776c9de737ad5f594bdef36896e3&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimage%2Fc0%253Dshijue1%252C0%252C0%252C294%252C40%2Fsign%3D6e8effc3ab44ad343ab28fc4b8cb6681%2F5882b2b7d0a20cf4ce00a3f17c094b36acaf9908.jpg', nickname: 'qian'
-      },
-      {
-        url: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1524592132446&di=cbb5776c9de737ad5f594bdef36896e3&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimage%2Fc0%253Dshijue1%252C0%252C0%252C294%252C40%2Fsign%3D6e8effc3ab44ad343ab28fc4b8cb6681%2F5882b2b7d0a20cf4ce00a3f17c094b36acaf9908.jpg', nickname: 'sun'
-      },
-      {
-        url: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1524592132446&di=cbb5776c9de737ad5f594bdef36896e3&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimage%2Fc0%253Dshijue1%252C0%252C0%252C294%252C40%2Fsign%3D6e8effc3ab44ad343ab28fc4b8cb6681%2F5882b2b7d0a20cf4ce00a3f17c094b36acaf9908.jpg', nickname: 'li'
-      },]
+        userId: '',
+        avatar: 'http://res.mengxiangjing.com/articleChamonixClouds_EN-AU7806783297_1920x1080.jpg',
+        nickName: 'Asuis',
+        isTouch: false
+      }
+    ]
   },
 
   /**
@@ -80,5 +92,33 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  handleZanTabChange(e) {
+    var componentId = e.componentId;
+    var selectedId = e.selectedId;
+
+    this.setData({
+      [`${componentId}.selectedId`]: selectedId
+    });
+  },
+  touch (e) {
+    console.log(e)
+    const id = e.currentTarget.dataset.id
+    console.log(this.$data)
+    this.$data.sessions[id].isTouch = true
+  },
+  to(e) {
+    const id = e.currentTarget.dataset.id
+    console.log(this.$data)
+    this.$data.sessions[id].isTouch = false
+  },
+  touchf(){
+    const id = e.currentTarget.dataset.id
+    this.$data.friends[id].isTouch = true
+  },
+  tof(){
+    const id = e.currentTarget.dataset.id
+    console.log(this.$data)
+    this.$data.friends[id].isTouch = false
   }
-})
+}))

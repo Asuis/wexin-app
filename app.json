@@ -1,22 +1,26 @@
 {
   "pages": [
     "pages/meeting/show/show",
+    "pages/red-paper/red-paper",
+    "pages/meeting/config/m-config",
     "pages/live/live",
+    "pages/user/index",
+    "pages/quiz/index",
+    "pages/pay/pay",
+     "pages/red-paper/setting/index",
+    "pages/meeting/create/m-create",
     "pages/txl/txl",
     "pages/me/me",
-    "pages/index/index",
     "pages/room/room",
+    "pages/index/index",
     "pages/meeting/details/meeting-detail",
-    "pages/meeting/create/m-create",
     "pages/show/show",
     "pages/index2/form",
     "pages/chat/chat",
     "pages/test/test",
     "pages/danmu/bar",
     "pages/social/social",
-    "pages/pay/pay",
-    "pages/red-paper/red-paper",
-    "pages/meeting/config/m-config"
+    "pages/scan/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -41,12 +45,6 @@
         "text": "朋友",
         "iconPath": "img/social.png",
         "selectedIconPath": "img/social2.png"
-      },
-      {
-        "pagePath": "pages/index/index",
-        "iconPath": "img/me.png",
-        "selectedIconPath": "img/me2.png",
-        "text": "我的"
       },
       {
         "pagePath": "pages/me/me",

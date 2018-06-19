@@ -4,6 +4,7 @@ const config = require('./config');
 const moment = require('../../../../vendor/moment/we-moment.js');
 var qcloud = require('../../../../vendor/qcloud-weapp-client-sdk/index');
 var qconfig = require('../../../../config');
+const qiniuUploader = require('../../../../vendor/qiniu/qiniuUploader.js');
 Component(Object.assign({}, Zan.Field,{
   /**
    * 组件的属性列表
@@ -69,8 +70,8 @@ Component(Object.assign({}, Zan.Field,{
       // this.triggerEvent('nextt',{},{});
     },
     formSubmit(event) {
-      event.detail.value.startTime = this.data.mform.endTime.value;
-      event.detail.value.endTime = this.data.mform.startTime.value;      
+      event.detail.value.endTime = this.data.mform.endTime.value;
+      event.detail.value.startTime = this.data.mform.startTime.value;      
       event.detail.value.meetingId = this.data.meetingId;      
       console.log('[zan:field:submit]', event.detail.value);
       const $this = this;
@@ -79,7 +80,7 @@ Component(Object.assign({}, Zan.Field,{
       })
       qcloud.request({
         login: true,
-        url: qconfig.meeting.updateMeetingUrl,
+        url: 'http://127.0.0.1:8080/v1/m/update',
         method: 'post',
         data: event.detail.value,
         success: function (response) {
@@ -143,10 +144,36 @@ Component(Object.assign({}, Zan.Field,{
     wx.chooseImage({
       count: 1,
       success: function(res) {
-        var tempFilePaths = res.tempFilePaths;
+        var tempFilePaths = res.tempFilePaths
         $this.setData({
           logoUrl: tempFilePaths[0]
-        })
+        }),
+        qcloud.request({
+          method: 'GET',
+          url: 'http://127.0.0.1:8080/v1/m/upload/token/logo?mid='+$this.data.meetingId,
+          success: function(res) {
+            const token = res.data.data.up_token
+            console.log(token)
+            qiniuUploader.upload($this.data.logoUrl,(res)=>{
+              console.log(res)
+            },(error)=>{
+              console.log(error) 
+            },{
+              region: 'ECN',
+              domain: 'res.mengxiangjing.com', // // bucket 域名，下载资源时用到。如果设置，会在 success callback 的 res 参数加上可以直接使用的 ImageURL 字段。否则需要自己拼接
+              key: `mlogo_${$this.data.meetingId}.jpg`, // [非必须]自定义文件 key。如果不设置，默认为使用微信小程序 API 的临时文件名
+              // 以下方法三选一即可，优先级为：uptoken > uptokenURL > uptokenFunc
+              uptoken: token
+            }, (res) => {
+                console.log('上传进度', res.progress)
+                console.log('已经上传的数据长度', res.totalBytesSent)
+                console.log('预期需要上传的数据总长度', res.totalBytesExpectedToSend)
+            })
+          },
+          fail: function(err) {
+            console.log(err)
+          }
+        });
       },
     })
   }

@@ -1,7 +1,8 @@
 // pages/meeting/create/select-type/select-type.js
 var qcloud = require('../../../../vendor/qcloud-weapp-client-sdk/index');
 var config = require('../../../../config');
-Component({
+import grace from '../../../../grace/index'
+grace.component({
   /**
    * 组件的属性列表
    */
@@ -17,7 +18,8 @@ Component({
     current_type: '',
     meeting_types: [
       {icon: '',title: ''}
-    ]
+    ],
+    type: "1"
   },
 
   /**
@@ -39,7 +41,7 @@ Component({
         login: true,
         url: config.meeting.createMeetingByTypeUrl,
         method: 'post',
-        data: { "type": "1" },
+        data: { "type": this.data.type },
         success: function (response) {
           console.log(response);
           if(response.code==='200') {
@@ -55,6 +57,11 @@ Component({
           console.log(err);
         }
       }); 
+    },
+    selected(e){
+      console.log(e)
+      this.$data.type = e.currentTarget.dataset.tid
+      console.log("now type:",this.$data.type)
     }
   }
 })

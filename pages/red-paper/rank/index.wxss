@@ -1,0 +1,14 @@
+/* pages/red-paper/rank/index.wxss */
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container image{
+    position: absolute;
+}
+.container .show {
+    font-weight: 700;
+    font-size: 32px;
+    color: #fff;
+}

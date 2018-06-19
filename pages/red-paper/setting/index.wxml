@@ -1,0 +1,25 @@
+<!--pages/red-paper/setting/index.wxml-->
+<import src="/zan-ui/tab/index.wxml" />
+<import src="/zan-ui/field/index.wxml" />
+<view class="container">
+  <view>
+    <template
+      is="zan-tab"
+      data="{{ ...tab1, componentId: 'tab1' }}">
+    </template>
+  </view>
+  <form bindsubmit="pay" bindreset="">
+    <view class="zan-panel">
+      <template
+      is="zan-field"
+      data="{{ ...coin, coin_value }}"></template>
+    </view>
+    <view class="zan-panel">
+      <template
+        is="zan-field"
+        data="{{ ...words, value: words_value }}"></template>
+    </view>
+    <button style="margin:20rpx;background:#E8414D;"
+      class="zan-btn zan-btn--danger" formType="submit">塞钱</button>
+  </form>
+</view>

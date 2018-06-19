@@ -1,19 +1,40 @@
 // pages/me/me.js
-var qlcoud=require('../../vendor/qcloud-weapp-client-sdk/index.js');
-Page({
-
+import grace from '../../grace/index'
+const app = getApp()
+grace.page({
   /**
    * 页面的初始数据
    */
   data: {
       user:{
         nickName:'',
-       gender :'',
-       language:'',
-       city:'',
-       province:'',
-       avatarUrl:''
+        gender :'',
+        language:'',
+        city:'',
+        province:'',
+        avatarUrl:''
+      },
+      isLogin: false,
+      isLoading: false,
+      configs: [
+      {
+        title: '余额',
+        icon: '/img/balance.png',
+        details: '0.33元',
+        isTouch: false
+      },
+      {
+        title: '会议',
+        icon: '/img/Meeting.png',
+        details: '',
+        isTouch: false
+      },
+      {
+        title: '设置',
+        icon: '/img/configure.png',
+        isTouch: false
       }
+    ]
   },
 
   /**
@@ -25,7 +46,11 @@ Page({
     })
   },
   onLoad: function (options) {
-  
+    const user = wx.getStorageSync('user')
+    if(user!=='') {
+      this.$data.user = user
+      this.$data.isLogin = true
+    }
   },
 
   /**
@@ -56,39 +81,30 @@ Page({
   
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  },
-  login: function () {
-    const $this = this;
-    qlcoud.login({
-      success(res) {
-        console.log("成功",res)
-        $this.setData({
-          user: res
+  login: function (e) {
+    wx.showLoading({
+      mask: true,
+      title: '登录中...',
+      success:()=>{
+        app.doLogin((res)=>{
+          if(res!==undefined){
+            console.log(res)
+            this.$data.user = res
+            this.$data.isLogin = true
+          }
+          wx.hideLoading()
         })
-      },
-      fail(error) {
-        console.log("失败", error)
       }
     })
+  },
+  touch (e) {
+    const id = e.currentTarget.dataset.id
+    this.$data.configs[id].isTouch = true
+    console.log(e)
+  },
+  to (e){
+    const id = e.currentTarget.dataset.id
+    this.$data.configs[id].isTouch = false
+    console.log(e)
   }
-}
-)
+})

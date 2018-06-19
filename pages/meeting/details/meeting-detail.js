@@ -9,6 +9,7 @@ Page({
    */
   data: {
     url: 'default',
+    mid: '',
     meeting: {
       desc: '',
       endTime: '',
@@ -25,18 +26,18 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log("jdklfjd",options.mid)
     this.setData({
-      url: decodeURI(options.q)
+      mid: options.mid
     })
     let $this = this;
     qcloud.request({
       url: config.meeting.searchByIdUrl,
       method: 'post',
-      data: { query: '1' },
+      data: { query: options.mid },
       success: function (res) {
         console.log(res)
         if (res.data.code === 'SUCC') {
-          res.data.data.startTime
           $this.setData({
             meeting: res.data.data
           })
@@ -73,13 +74,6 @@ Page({
   },
 
   /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
@@ -98,5 +92,13 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  jumpToRoom () {
+    wx.navigateTo({
+      url: '../../room/room?mid='+this.data.mid,
+    })
+  },
+  jumpToSignUp () {
+    
   }
 })
