@@ -1,0 +1,9 @@
+<!--pages/room/index.wxml-->
+<view class="zan-panel">
+    <view class="zan-cell" wx:for="{{1}}" wx:key="{{index}}" bindtap='jumpUser'>
+      <view class="zan-cell__icon">
+          <image src="https://wx.qlogo.cn/mmopen/vi_32/nh5xffgGyPf8E55ia3AxKxHYpMZRNnYOdad7OxjrlN0rjy0KnICyU4J8WY6icKW4GBKUbEGokWllTUvvpkVW6kvg/132" style="width:16px;height:18px;"></image>
+      </view>
+      <view class="zan-cell__bd">孟杰</view>
+    </view>
+  </view>

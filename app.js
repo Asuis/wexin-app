@@ -161,7 +161,7 @@ App({
                 title: '支付成功'
               })
               if(callback!==undefined){
-                callback({price:price,title: words})
+                callback({price:price,title: words,count: 1})
               }
             },
             fail: (err)=>{
@@ -216,7 +216,20 @@ App({
     },
     addFriend(fid){
       qcloud.request({
-        url: 'http://127.0.0.1:8080/v1/fri/'
+        url: 'https://asuis.mynatapp.cc/v1/fri/'
+      })
+    },
+    getRedPaper(rp,callback){
+      qcloud.request({
+        url: `https://asuis.mynatapp.cc/v1/pay/get/${rp.rid}`,
+        method: 'get',
+        success: (res)=>{
+          callback(res)
+        },
+        fail: (err)=>{
+          console.log(err)
+          callback(res)
+        }
       })
     }
 });

@@ -1,20 +1,18 @@
-// pages/live/live.js
-var playcontext = undefined
-var pushercontext = undefined
+// pages/qrcode/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    url: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-     playcontext = wx.createLivePlayerContext('player', this),
-      pushercontext = wx.createLivePusherContext()
+  
   },
 
   /**
@@ -64,17 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
   
-  },
-  full(){
-    console.log('full')
-    console.log(pushercontext)
-    console.log(playcontext)
-    playcontext.requestFullScreen()
-  },
-  statechange(e) {
-    console.log('live-pusher code:', e.detail.code)
-  },
-  error(e){
-    console.log("error",e)
   }
 })

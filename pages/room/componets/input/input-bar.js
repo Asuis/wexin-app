@@ -48,6 +48,18 @@ grace.component({
         type: 'vote',
         pic: '/img/ranking.png',
         isPress: false
+      },
+      {
+        name: 'player',
+        type:'player',
+        pic:'/img/ranking.png',
+        isPress: false
+      },
+      {
+        name: 'pusher',
+        type: 'pusher',
+        pic: '/img/ranking.png',
+        isPress: false
       }
     ]
   },
@@ -118,6 +130,14 @@ grace.component({
           wx.navigateTo({
             url: '../../../../quiz/index'
           })
+          break;
+        case 'player':
+          console.log('oooooooo')
+          this.triggerEvent('pla')
+          break;
+        case 'pusher':
+          console.log('xxxxxxxx')        
+          this.triggerEvent('pus')
           break;
       }
     }

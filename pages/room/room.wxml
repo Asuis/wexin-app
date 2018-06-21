@@ -1,18 +1,22 @@
 <!--pages/room/room.wxml-->
+<import src="/zan-ui/actionsheet/index.wxml" />
 <view>
    <view>
     <view>
-      <chat-message messages="{{messages}}" roomHeight="{{room_height}}" toMessage="{{messageIndex}}"></chat-message>
+    <live-pusher wx:if="{{isPusher}}" id="pusher" url="rtmp://115.159.192.186:1935/live/test" mode="RTC" autopush bindstatechange="statechange" orientation="vertical" style="width: 100%; height: 225px;" />   
+      <live-player wx:if="{{isPlayer}}" id="player" src="http://115.159.192.186:7001/live/test.flv" mode="live" orientation="horizontal" autoplay bindstatechange="statechange" binderror="error" style="width: 100%; height: 225px;" />  
+      <chat-message bind:jump="goToRp" messages="{{messages}}" roomHeight="{{room_height}}" toMessage="{{messageIndex}}"></chat-message>
     </view>
   </view>
-<m-button bindTap></m-button>
-<input-bar inputMessage="{{inputMessage}}" bindrp="torp" bindba="obar" bindsend="sendMessage"></input-bar> 
+<m-button bindtap='jumpToMember'></m-button>
+<input-bar bindpla="player" bindpus="pusher" inputMessage="{{inputMessage}}" bindrp="torp" bindba="obar" bindsend="sendMessage"></input-bar> 
 <!-- <r-dialog></r-dialog> -->
 </view>
-<view class="doommview">
+<view wx:if="{{isDanmu===true}}" class="doommview">
   <block wx:for="{{doommData}}" wx:key="id">
       <text wx:if="{{item.display}}" class="aon" style="animation: first {{item.time}}s linear forwards;top:{{item.top}}%;color:{{item.color}};">
           {{item.text}}
       </text>
   </block>
 </view>
+<template is="zan-actionsheet" data="{{ ...baseActionsheet }}"></template>

@@ -216,7 +216,7 @@ grace.page(extend({}, Actionsheet,{
   getMyMeeting (){
     let that = this
     qcloud.request({
-      url: 'http://127.0.0.1:8080/v1/m/query/mym/0/10',
+      url: 'https://asuis.mynatapp.cc/v1/m/query/mym/0/10',
       success(res){
         console.log("show:",res)
         that.setData({
@@ -230,7 +230,7 @@ grace.page(extend({}, Actionsheet,{
   },
   signUpMeeting(mid){
     qcloud.request({
-      url: `http://127.0.0.1:8080/v1/m/signup/${mid}`,
+      url: `https://asuis.mynatapp.cc/v1/m/signup/${mid}`,
       login:true,
       method: 'POST',
       success(res){

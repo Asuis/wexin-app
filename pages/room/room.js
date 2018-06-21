@@ -5,7 +5,6 @@ const qcloud = require('../../vendor/qcloud-weapp-client-sdk/index.js')
 const config = require('../../config.js')
 var page = undefined;
 var app = getApp()
-fffdddd
 // 显示繁忙提示
 var showBusy = text => wx.showToast({
   title: text,
@@ -35,6 +34,28 @@ grace.page({
    * 页面的初始数据
    */
   data: {
+    isPlayer:false,
+    isPusher:false,
+    baseActionsheet: {
+      show: false,
+      cancelText: '',
+      closeOnClickOverlay: true,
+      componentId: 'baseActionsheet',
+      actions: [{
+        name: '成员',
+        subname: '',
+        className: 'action-class',
+        loading: false
+      }, {
+        name: '邀请',
+        subname: '',
+        className: 'action-class',
+        loading: false
+      }, {
+        name: '扫一扫',
+        openType: 'share'
+      }]
+    },
     isDanmu: false,
     danmuData:[],
     tunnelUrl: config.service.tunnelUrl,
@@ -52,7 +73,9 @@ grace.page({
       }
     ],
     messageIndex: '',
-    messages:[],
+    messages:[
+
+    ],
     roomData:{},
     lastMessageId: '0',
     inputMessage: '',
@@ -62,7 +85,11 @@ grace.page({
   $onBackData(data) {
     //接收页面返回的数据，
     console.log(data)
-    this.sendRpMessage(data)  
+    if(data.price!==undefined){
+      console.log('发送ｒｅｄｐａｅｒ')
+      this.sendRpMessage(data)
+    }
+    // this.sendRpMessage(data)  
   },
   /**  dfm,dmffffcccccccxcdfdfdfdfdfeee
    * 生命周期函数--监听页面加载
@@ -72,7 +99,7 @@ grace.page({
    * 4. 更新index scroll view
    */
   onLoad: function (options) {
-
+    
     console.log("options:",options)
     page = this
     this.setData({
@@ -96,7 +123,6 @@ grace.page({
         })
       }
     })
-    
   },
 
   /**
@@ -138,6 +164,16 @@ grace.page({
    */
   onShareAppMessage: function () {
   
+  },
+  pusher(){
+    this.setData({
+      isPusher: !this.data.isPusher
+    })
+  },
+  player(){
+    this.setData({
+      isPlayer: !this.data.isPlayer
+    })
   },
   bindTunnel () {
     const that = this
@@ -241,7 +277,7 @@ grace.page({
         
         res.data.data.members.forEach(element => {
           me.set(element.userId,element)
-        });
+        })
         that.setData({
           roomData: me
         })
@@ -353,10 +389,10 @@ grace.page({
     }
     setTimeout(() => {
       
-      if (this.data.inputMessage && app.tunnel) {
+      if (app.tunnel) {
         console.log(app)
         const msg = { 
-          content: res,
+          content: JSON.stringify(res),
           senderId: app.me.openId,
           receiverId: this.data.mid,
           time: '',
@@ -570,6 +606,84 @@ grace.page({
       })
     }
   },
+  jumpToMember(){
+    wx.navigateTo({
+      url: 'index?mid='+this.data.mid,
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
+  },
+  handleZanActionsheetClick({ componentId, index }) {
+    console.log(`item index ${index} clicked`);
+    const that = this
+    // 如果是分享按钮被点击, 不处理关闭
+    if (index === 2) {
+      return;
+    }
+
+    // this.setData({
+    //   [`${componentId}.actions[${index}].loading`]: true
+    // });
+    switch (index) {
+      case 0:
+        this.jumpToMember()
+        break;
+      case 1:
+        wx.scanCode({
+          scanType: ['qrCode'],
+          success(res){
+            console.log("showqrcode:",res)
+            const data = JSON.parse(res.result)
+            if(data.code === 'SUCC') {
+              wx.requestPayment({
+                timeStamp: data.data.timeStamp,
+                nonceStr: data.data.nonceStr,
+                package: data.data.package,
+                signType: data.data.signType,
+                paySign: data.data.paySign,
+                success: (res) => {
+                  console.log(res)
+                  wx.showToast({
+                    title: '支付成功'
+                  })
+                  if (callback !== undefined) {
+                    callback({ price: price, title: words })
+                  }
+                },
+                fail: (err) => {
+                  console.log(err)
+                },
+                complete: () => { }
+              })
+            } else {
+              that.signUpMeeting(res.result)
+            }
+          },
+          fail(err){
+            console.log(err)
+          }
+        })
+        break;
+      default:
+        break;
+    }
+    // setTimeout(() => {
+    //   this.setData({
+    //     [`${componentId}.show`]: false,
+    //     [`${componentId}.actions[${index}].loading`]: false
+    //   });
+    // }, 1500);
+  },
+  goToRp(e){
+    console.log('goToRp',e)
+    console.log(app)
+    app.getRedPaper({rid: e.detail.rid}, (res)=>{
+      wx.navigateTo({
+        url: '../red-paper/red-paper?rid='+e.detail.rid
+      })
+    })
+  },
   pushRpMessage(price){
     let sp = JSON.parse(price)
     const that = this
@@ -578,6 +692,9 @@ grace.page({
        const m = this.data.roomData.get(sp.senderId)
        console.log("ddfkkkkk",m)
        // console.log(app.me.openId)
+       console.log('price',sp)
+       const content = JSON.parse(sp.content)
+       console.log(content)
        msg = {
          type: 'rp',
          messageId: sp.messageId,
@@ -588,9 +705,10 @@ grace.page({
          },
          time: sp.time,
          content: {
-           title: 'dfdf',
-           words:'dkfjdkf'
+           title: content.title,
+           words: content.title===''?'恭喜发财,大吉大利':content.title
          },
+         rid: content.rid,
          isme: sp.senderId===app.me.openId
        }
       console.log(msg)
@@ -599,6 +717,7 @@ grace.page({
       msg.messageId = parseInt(this.data.lastMessageId)+1
       console.log(this.data.lastMessageId)
       messagess.push(msg)
+      console.log(messagess)
       this.setData({
         messages: messagess,
         messageIndex: `${msg.messageId}`,

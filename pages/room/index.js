@@ -1,20 +1,22 @@
-// pages/live/live.js
-var playcontext = undefined
-var pushercontext = undefined
+// pages/room/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    mid: '110'
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-     playcontext = wx.createLivePlayerContext('player', this),
-      pushercontext = wx.createLivePusherContext()
+    console.log("options:", options)
+    page = this
+    this.setData({
+      mid: options.mid
+    })
   },
 
   /**
@@ -65,16 +67,9 @@ Page({
   onShareAppMessage: function () {
   
   },
-  full(){
-    console.log('full')
-    console.log(pushercontext)
-    console.log(playcontext)
-    playcontext.requestFullScreen()
-  },
-  statechange(e) {
-    console.log('live-pusher code:', e.detail.code)
-  },
-  error(e){
-    console.log("error",e)
-  }
+    jumpUser(e){
+      wx.navigateTo({
+        url: '../user/index',
+      })
+    }
 })

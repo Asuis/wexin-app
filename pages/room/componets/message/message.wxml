@@ -1,8 +1,7 @@
 <!--pages/room/componets/message/message.wxml-->
 <view>
   <scroll-view class='we-msg-back' scroll-top="0" scroll-with-animation="{{true}}" scroll-y='true' scroll-into-view="w{{toMessage}}" scroll-top="9999999999" style="{{'height:'+roomHeight+'px;'}}">
-  <view wx:for="{{messages}}" wx:key="{{item.messageId}}" id="w{{item.messageId}}">
-      
+  <block wx:for="{{messages}}" wx:key="{{item.messageId}}" id="w{{item.messageId}}">
       <view wx:if="{{item.type==='chat'&&item.isme===false}}" class='we-message-left'>
         <image class='we-avatar' src="{{item.sender.avatar}}"></image>
         <view class='we-block'>
@@ -41,7 +40,7 @@
         <image class='we-avatar' src="{{item.sender.avatar}}"></image>
       <view class='we-block'>
       <view class='we-title'>{{item.sender.nikeName}}</view>
-      <view class='we-msg-red' data-id="{{index}}" bindtap='togglePopup'>
+      <view class='we-msg-red' data-id="{{item.rid}}" bindtap="togglePopup">
         <image src='/img/red.png'></image>
         <view class='we-msg-red-de'>
           <text class='red-title'>{{item.content.title}}</text>
@@ -51,9 +50,9 @@
     </view>
   </view>
 
-    <view data-id="{{index}}" bindtap="togglePopup" class="zan-popup {{ item.show ? 'zan-popup--show' : ''}}">
+    <view data-id="{{item.rid}}" class="zan-popup {{ showPopup ? 'zan-popup--show' : ''}}">
       <view class="zan-popup__mask" data-id="{{index}}" bindtap="togglePopup"></view>
-      <view class="zan-popup__container">
+      <view class="zan-popup__container" bindtap="getRp">
         <view class='red-paper-de'>
           <view class='u-detail topcontent'>
             <image class='we-avatar' src="{{item.sender.avatar}}"></image>
@@ -61,7 +60,7 @@
               <text>{{item.sender.nikeName}}</text>
             </view>
             <view>
-              <text>{{item.content.words}}</text>
+              <text>{{item.content.title}}</text>
             </view>
           </view>
         </view>
@@ -83,7 +82,7 @@
         </view>
       </view>
     </view>
-  </view>
+  </block>
   
 </scroll-view>
   <view style='height:100rpx;'></view>

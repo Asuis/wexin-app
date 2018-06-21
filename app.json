@@ -1,17 +1,17 @@
 {
   "pages": [
     "pages/meeting/show/show",
+    "pages/live/live",
+    "pages/room/room",
     "pages/red-paper/red-paper",
     "pages/meeting/config/m-config",
-    "pages/live/live",
     "pages/user/index",
     "pages/quiz/index",
     "pages/pay/pay",
-     "pages/red-paper/setting/index",
+    "pages/red-paper/setting/index",
     "pages/meeting/create/m-create",
     "pages/txl/txl",
     "pages/me/me",
-    "pages/room/room",
     "pages/index/index",
     "pages/meeting/details/meeting-detail",
     "pages/show/show",
@@ -20,7 +20,9 @@
     "pages/test/test",
     "pages/danmu/bar",
     "pages/social/social",
-    "pages/scan/index"
+    "pages/scan/index",
+    "pages/room/index",
+    "pages/qrcode/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

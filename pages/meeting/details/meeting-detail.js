@@ -33,7 +33,7 @@ Page({
     let $this = this;
     qcloud.request({
       url: config.meeting.searchByIdUrl,
-      method: 'post',
+      method: 'POST',
       data: { query: options.mid },
       success: function (res) {
         console.log(res)

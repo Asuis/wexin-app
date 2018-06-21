@@ -1,4 +1,7 @@
 <!--pages/live/live.wxml-->
-  <!-- <live-pusher url="rtmp://www.asuis.mengxingjing:1935/live/movie" mode="RTC" autopush bindstatechange="statechange" style="width: 100%; height: 225px;" /> -->
+<!-- <live-pusher url="https://domain/push_stream" mode="RTC" autopush bindstatechange="statechange" style="width: 300px; height: 225px;" /> -->
 
-<live-player src="https://www.mengxiangjing.com/r/live/test.flv" mode="live" autoplay bindstatechange="statechange" binderror="error" style="width: 100%; height: 225px;" />
+  <live-player id="player" src="http://115.159.192.186:7001/live/test.flv" mode="live" orientation="horizontal" autoplay bindstatechange="statechange" binderror="error" style="width: 100%; height: 225px;" />  
+  
+  <live-pusher id="pusher" url="rtmp://115.159.192.186:1935/live/test" mode="RTC" autopush bindstatechange="statechange" orientation="vertical" style="width: 300px; height: 125px;" />   
+ <button bindtap='full'>full</button>

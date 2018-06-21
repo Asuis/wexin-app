@@ -37,9 +37,20 @@ grace.component({
   methods: {
     togglePopup(e) {
       console.log(e)
+      console.log('shoshohwsoh')
       this.setData({
         showPopup: !this.data.showPopup
       });
     },
+    getRp(e){
+      console.log('getRp', e)
+      this.setData({
+        showPopup: !this.data.showPopup
+      })
+      this.triggerEvent('jump',{rid: e.currentTarget.id},{})
+    },
+    test(){
+      console.log('test')
+    }
   }
 })

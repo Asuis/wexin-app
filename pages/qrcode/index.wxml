@@ -1,0 +1,5 @@
+<!--pages/qrcode/index.wxml-->
+<text>pages/qrcode/index.wxml</text>
+<view style='display:flex;justify-content:center;aligins:middle;'>
+  <image src='url'></image>
+</view>
